@@ -17,6 +17,9 @@ public class Login extends BaseClass {
 		SignInOrSignUpPage signInPage = new SignInOrSignUpPage(driver);
 		signInPage.clickSignInUsingEmailLink();
 		signInPage.signIn("prasad_46ph@yahoo.com", "Redbus@123");
+		homepage.assertLoginSuccess();
+		homepage.signOut();
+		
 		
 	}
 	

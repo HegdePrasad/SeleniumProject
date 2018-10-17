@@ -10,7 +10,6 @@
     <classes>
       <class name="com.testscripts.Login">
         <methods>
-          <include name="afterClass"/>
           <include name="login"/>
           <include name="beforeClass"/>
         </methods>

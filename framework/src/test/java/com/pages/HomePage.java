@@ -1,6 +1,5 @@
 package com.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +22,9 @@ public class HomePage {
 	@FindBy(xpath = "//li[@id='signInLink']")
 	private WebElement signInLink;
 	
+	@FindBy(xpath = "//li[@id='signOutLink']")
+	private WebElement signOutLink;
+	
 	public HomePage(WebDriver driver){
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -30,19 +32,42 @@ public class HomePage {
 	
 	public void clickRedBusIndiaButton(){
 		comLib.waitForElementVisisbility(driver, redbusIndiaButton, Constants.mediumWait);
-		WebElement elem = driver.findElement(By.xpath("//div[contains(text(),'redBus India')]"));
-		System.out.println(elem.isDisplayed());
 		redbusIndiaButton.click();
+		System.out.println("--Successfully clicked RedBus India button--");
 	}
 	
 	public void clickUserProfileIcon(){
 		comLib.waitForElementVisisbility(driver, userProfileIcon, Constants.mediumWait);
 		userProfileIcon.click();
+		System.out.println("--Successfully clicked UserProfile Icon--");
 	}
 	
 	public void clickSignInLink(){
 		comLib.waitForElementVisisbility(driver, signInLink, Constants.mediumWait);
 		signInLink.click();
+		System.out.println("--Successfully clicked SignIn Link--");
+	}
+	
+	public void clickSignOutLink(){
+		comLib.waitForElementVisisbility(driver, signOutLink, Constants.mediumWait);
+		signInLink.click();
+		System.out.println("--Successfully clicked SignOut Link--");
+	}
+	
+	public void assertLoginSuccess(){
+		comLib.waitForElementVisisbility(driver, userProfileIcon, Constants.mediumWait);
+		userProfileIcon.click();
+		comLib.waitForElementVisisbility(driver, signOutLink, Constants.mediumWait);
+		userProfileIcon.click();
+		System.out.println("--Successfully Logged in--");
+	}
+	
+	public void signOut(){
+		comLib.waitForElementVisisbility(driver, userProfileIcon, Constants.mediumWait);
+		userProfileIcon.click();
+		comLib.waitForElementVisisbility(driver, signOutLink, Constants.mediumWait);
+		signOutLink.click();
+		System.out.println("--Successfully Logged Out--");
 	}
 	
 	
